@@ -13,7 +13,8 @@ colors{ {255, 255, 255},
 		{255, 204, 0},
 		{139, 0, 255},
 		{255, 0, 0},
-		{0, 255, 255} }
+		{0, 255, 255} },
+m_iColorFlag(0)
 {
 	m_iRedPin = redPin; m_iGreenPin = greenPin; m_iBluePin = bluePin; //…Ë÷√’ÎΩ≈
 	pinMode(m_iRedPin, OUTPUT);
@@ -30,9 +31,9 @@ void rgbLed::changeTo(uint8_t red, uint8_t green, uint8_t blue)
 
 void rgbLed::nextColor()
 {
-	m_iCurrentColor = ++m_iCurrentColor % colorNum;
+	m_iColorFlag = ++m_iColorFlag % colorNum;
 
-	changeTo(colors[m_iCurrentColor].red, colors[m_iCurrentColor].green, colors[m_iCurrentColor].blue);
+	changeTo(colors[m_iColorFlag].red, colors[m_iColorFlag].green, colors[m_iColorFlag].blue);
 }
 
 
